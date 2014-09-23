@@ -1,0 +1,46 @@
+10
+
+dir
+9
+https://mathlab.utsc.utoronto.ca/svn/cscc69s14/group2/a2/kern/arch/mips
+https://mathlab.utsc.utoronto.ca/svn/cscc69s14/group2/a2
+
+
+
+2014-07-02T00:56:51.785698Z
+7
+vasavada@UTORONTO.CA
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+e8b8bd4b-b94a-4dcb-9d09-36f2e4acf6b8
+
+thread
+dir
+
+syscall
+dir
+
+vm
+dir
+
+include
+dir
+
+locore
+dir
+
+conf
+dir
+

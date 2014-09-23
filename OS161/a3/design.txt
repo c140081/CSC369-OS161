@@ -1,0 +1,72 @@
+File Table Design:
+
+The struct filetable is a per-process struct (hence, we don't need a lock!) that contains a list of struct of filetable_entries and it has a fixed length __OPEN_MAX.
+
+A separate filetable_entry struct was created for file table entries. This contained the following stuff:
+
+    - Lock
+    
+        Needed for synchronization. It is used everytime there is change in ft_pos and ft_count.
+    
+    - File (entry) vnode
+    
+        Used for global representation of the file.    
+    
+    - current position in file (entry)
+    
+        The current position of file, which will be useful in system calls such as sys_read() and sys_write().
+    
+    - flags
+    
+        Used to indicate the access mode of file.
+        
+    - Count
+    
+        It represents the number of file descriptor pointing to this entry.
+        
+In runprogram method, when a new user program is started, a filetable is created for that thread. One filetable_entry
+is created with console vnode with access mode O_RDWR, and first three file descriptors point to the same filetalbe_entry
+object.The rest are initialized to NULL.
+
+When filetable is opened, we create filetable_entry object with vnode of the given file name and insert it into empty slot
+in filetable. The position is set to 0 and count is set to 1.
+
+When filetable is closed, we decrement the ft_count, and if it is 0 (which means there is no fd referring to this entry),
+we call vfs_close to close the file.
+
+Our design also supports fork semantics because after a fork, the child process will have the same copy as it's parent. 
+We also increase the ft_count (fd reference count) so we know that how many processes are using this file. This prevents
+any process to close the file while other processes are still using it.
+
+When the process exits, for each file descriptor that has a valid filetable_entry, file_close is called. Deciding whether
+the vnode requires vfs_close or not and freeing the filetable_entry will be handled inside the call to file_close.
+
+--------- 
+
+Implementation of SFS function:
+
+The paramters sfs_getdirentry takes are: pointer to struct vnode, from which we obtain the sfs_vnode and the pointer to
+struct uio, from which we obtain the offset of the directory.
+
+First, we make sure that the type of sfs_vnode is directory and not just a file. If this condition fails, we throw ENOTDIR
+error. Otherwise, the for loop is executed. The loop condition is: the slot is less than the total number of entries. 
+
+So while the slot is within the range, we call sfs_readdir to read the directory and to obtain the struct sfs_dir sfd. If
+the read call failed, the function will return the result value obtained from sfs_readdir. If slot is non-empty, and
+read call passed, the program will call uiomove() to copy the name of the directory entry into a struct uio. Else if the 
+slot is empty, we simply move the next slot (as we're looping). We then adjust the uio offset to point at next slot in 
+directory.
+
+---------
+
+We didn't implement the wasted inode space using feature in our assignment.
+
+A function called filetable_searchfile is implemented in file.c to verify the input fd is a valid one and checks if the filetable_entry according to this fd is valid. 
+
+One of the single biggest challenge we faced in this assignment was when the filetable is initialized, the first 3 fd weren't managed properly, thus causing some deadlock issues and a whole night of debugging. (Thanks Vishrant!).
+
+note: The DISK1/2.img files aren't created once we compile the code. A fix for this is just run sys161 kernel once, then after the img files are created, do the mksfs on disk1.img, then go back to sys161 and mount the lhd0. I have no idea what's causing this bug and do not intend to fix it ;). I've also modified the conf file for a bigger memory setup because we are too dumb to use the A2 codes.
+
+Anyways, this course is pretty cool. 
+
+

@@ -1,0 +1,1 @@
+	result = pid_alloc(&newthread->t_pid);

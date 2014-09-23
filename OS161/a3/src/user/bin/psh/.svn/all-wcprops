@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/cscc69s14/group2/a3/!svn/ver/1/src/user/bin/psh
+END
+ln.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/cscc69s14/group2/a3/!svn/ver/1/src/user/bin/psh/ln.c
+END
+sync.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/cscc69s14/group2/a3/!svn/ver/1/src/user/bin/psh/sync.c
+END
+rmdir.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/cscc69s14/group2/a3/!svn/ver/1/src/user/bin/psh/rmdir.c
+END
+rm.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/cscc69s14/group2/a3/!svn/ver/1/src/user/bin/psh/rm.c
+END
+ls.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/cscc69s14/group2/a3/!svn/ver/1/src/user/bin/psh/ls.c
+END
+mv.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/cscc69s14/group2/a3/!svn/ver/1/src/user/bin/psh/mv.c
+END
+depend.mk
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/cscc69s14/group2/a3/!svn/ver/1/src/user/bin/psh/depend.mk
+END
+pwd.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/cscc69s14/group2/a3/!svn/ver/1/src/user/bin/psh/pwd.c
+END
+psh.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/cscc69s14/group2/a3/!svn/ver/1/src/user/bin/psh/psh.c
+END
+dependh.mk
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/cscc69s14/group2/a3/!svn/ver/1/src/user/bin/psh/dependh.mk
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/cscc69s14/group2/a3/!svn/ver/1/src/user/bin/psh/Makefile
+END
+psh.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/cscc69s14/group2/a3/!svn/ver/1/src/user/bin/psh/psh.h
+END
+opentest.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/cscc69s14/group2/a3/!svn/ver/1/src/user/bin/psh/opentest.c
+END
+cp.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/cscc69s14/group2/a3/!svn/ver/1/src/user/bin/psh/cp.c
+END
+mkdir.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/cscc69s14/group2/a3/!svn/ver/1/src/user/bin/psh/mkdir.c
+END
+cat.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/cscc69s14/group2/a3/!svn/ver/1/src/user/bin/psh/cat.c
+END
