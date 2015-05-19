@@ -1,0 +1,20 @@
+Join happens before exit:
+
+	Suspends the execution of calling thread and waits on CV.
+	
+
+Detach happens before exit:
+
+	Mark the thread as detached but don't drop it.
+
+Exit happens before join:
+	
+	No need to wait on CV. Store the exit status of thread targetpid. The pidinfo struct is retained until another thread performs pid_detach/join on it.
+
+Exit happens before detach:
+
+	Mark the parent pid as invalid, set exit status to true and drop the pid structure from process table.
+
+Detach before join:
+
+	Throws up the error message.
